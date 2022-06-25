@@ -20,7 +20,7 @@ class SectionController extends Controller
     public function index()
     {
         $sections = Section::translated()->get();
-        return view('Admin.Section.section', compact('sections'));
+        return view('Admin.Section.sections', compact('sections'));
     }
 
     /**
