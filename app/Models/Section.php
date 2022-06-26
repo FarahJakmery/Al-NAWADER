@@ -13,4 +13,20 @@ class Section extends Model implements TranslatableContract
 
     protected $fillable = ['icon_name', 'photo_name'];
     public $translatedAttributes = ['section_name'];
+
+    /**
+     * Get the categories for the section.
+     */
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    /**
+     * Get the advertisements for the section.
+     */
+    public function advertisements()
+    {
+        return $this->hasMany(Advertisements::class);
+    }
 }
