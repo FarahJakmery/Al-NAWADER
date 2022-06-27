@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Traits\SaveImageTrait;
 use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
+    use SaveImageTrait;
     /**
      * Display a listing of the resource.
      *
