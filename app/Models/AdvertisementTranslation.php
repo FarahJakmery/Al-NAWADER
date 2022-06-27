@@ -11,4 +11,5 @@ class AdvertisementTranslation extends Model
 
     public $timestamps = false;
     protected $fillable = ['text'];
+    protected $table = 'advertisement_translations';
 }
