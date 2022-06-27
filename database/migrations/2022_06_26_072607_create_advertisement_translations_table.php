@@ -14,8 +14,8 @@ class CreateAdvertisementTranslationsTable extends Migration
     public function up()
     {
         Schema::create('advertisement_translations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->foreignId('advertisement_id')->constrained('advertisement')->onDelete('cascade');
+            $table->id();
+            $table->foreignId('advertisement_id')->constrained('advertisements')->onDelete('cascade');
             $table->string('locale')->index();
             $table->string('text');
             $table->unique(['advertisement_id', 'locale']);

@@ -13,11 +13,11 @@ class CreateAdvertisementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('advertisement', function (Blueprint $table) {
+        Schema::create('advertisements', function (Blueprint $table) {
             $table->id();
-            $table->string('posted_by');
-            $table->string('section_id');
-            $table->string('category_id');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('section_id')->constrained('sections')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

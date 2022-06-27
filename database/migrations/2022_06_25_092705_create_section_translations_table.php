@@ -14,7 +14,7 @@ class CreateSectionTranslationsTable extends Migration
     public function up()
     {
         Schema::create('section_translations', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->foreignId('section_id')->constrained('sections')->onDelete('cascade');
             $table->string('locale')->index();
             $table->string('section_name');
