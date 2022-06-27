@@ -68,4 +68,12 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(DeviceToken::class);
     }
+
+    /**
+     * Get the advertisements for the user.
+     */
+    public function advertisements()
+    {
+        return $this->hasMany(Advertisement::class);
+    }
 }
