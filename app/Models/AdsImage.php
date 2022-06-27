@@ -11,4 +11,12 @@ class AdsImage extends Model
 
     protected $table = 'ads_images';
     protected $fillable = ['advertisement_id', 'image_name'];
+
+    /**
+     * Get the advertisement that owns the Image.
+     */
+    public function advertisement()
+    {
+        return $this->belongsTo(Advertisement::class);
+    }
 }
