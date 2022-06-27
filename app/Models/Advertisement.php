@@ -12,7 +12,7 @@ class Advertisement extends Model implements TranslatableContract
     use HasFactory, Translatable;
 
     protected $table = 'advertisements';
-    protected $fillable = ['posted_by', 'section_id', 'category_id'];
+    protected $fillable = ['user_id', 'section_id', 'category_id'];
     public $translatedAttributes = ['text'];
 
     /**
@@ -29,5 +29,13 @@ class Advertisement extends Model implements TranslatableContract
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Get the images for the blog advertisement.
+     */
+    public function images()
+    {
+        return $this->hasMany(AdsImage::class);
     }
 }
