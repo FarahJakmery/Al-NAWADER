@@ -11,6 +11,7 @@ class Section extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
 
+    protected $table = 'sections';
     protected $fillable = ['icon_name', 'photo_name'];
     public $translatedAttributes = ['section_name'];
 
