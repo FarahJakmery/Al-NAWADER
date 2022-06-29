@@ -18,9 +18,10 @@ class User extends Authenticatable implements JWTSubject
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'user_name',
         'email',
         'password',
+        'mobile_number',
     ];
 
     /**
@@ -75,5 +76,13 @@ class User extends Authenticatable implements JWTSubject
     public function advertisements()
     {
         return $this->hasMany(Advertisement::class);
+    }
+
+    /**
+     * Get the replies for the user.
+     */
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
     }
 }

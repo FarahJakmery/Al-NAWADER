@@ -47,8 +47,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'first_name'     => 'required|string|between:2,100',
-            'last_name'      => 'required|string|between:2,100',
+            'user_name'      => 'required|string|between:2,100',
             'email'          => 'required|string|email|max:100|unique:users',
             'password'       => 'required|string|confirmed|min:6',
             'mobile_number'  => 'required|string|min:8|max:11',
@@ -66,9 +65,9 @@ class AuthController extends Controller
         $token = auth('api')->attempt($validator->validated());
 
         return response()->json([
-            'message' => 'User successfully registered',
+            'message'      => 'User successfully registered',
             'access_token' => $token,
-            'user' => $user
+            'user'         => $user
         ], 201);
     }
 
@@ -80,8 +79,7 @@ class AuthController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'first_name'     => 'required|string|between:2,100',
-            'last_name'      => 'required|string|between:2,100',
+            'user_name'      => 'required|string|between:2,100',
             'email'          => 'required|string|email|max:100|unique:users',
             'password'       => 'required|string|confirmed|min:6',
             'mobile_number'  => 'required|string|min:8|max:11',
@@ -99,9 +97,9 @@ class AuthController extends Controller
         $token = auth('api')->attempt($validator->validated());
 
         return response()->json([
-            'message' => 'User Update his Information successfully',
+            'message'      => 'User Update his Information successfully',
             'access_token' => $token,
-            'user' => $user
+            'user'         => $user
         ], 201);
     }
 
@@ -144,10 +142,10 @@ class AuthController extends Controller
     {
         return response()->json([
             'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => null,
+            'token_type'   => 'bearer',
+            'expires_in'   => null,
             // 'expires_in' => auth('api')->factory()->getTTL() * 60,
-            'user' => auth('api')->user()
+            'user'         => auth('api')->user()
         ]);
     }
 }
