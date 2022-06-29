@@ -15,9 +15,11 @@ class CreateAdvertisementsTable extends Migration
     {
         Schema::create('advertisements', function (Blueprint $table) {
             $table->id();
+            $table->string('image_name');
+            $table->string('price');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('section_id')->constrained('sections')->onDelete('cascade');
-            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }
