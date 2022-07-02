@@ -28,6 +28,6 @@ class Section extends Model implements TranslatableContract
      */
     public function advertisements()
     {
-        return $this->hasMany(Advertisements::class);
+        return $this->hasMany(Advertisement::class);
     }
 }
